@@ -1,6 +1,6 @@
 ---
-- hosts: ansible-server
-  become: true
+- hosts: all
+  become: false
 
   tasks:
   - name: create docker image using war file
@@ -10,7 +10,7 @@
 
   - name: create tag to image
     command: docker tag simple-devops-image vdbsrao/simple-devops-image
-
+             
   - name: push image on to dockerhub
     command: docker push vdbsrao/simple-devops-image
 
