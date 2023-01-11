@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: amit-devops-project
-        image: ameintu/simple-devops-image
+        image: vdbsrao/simple-devops-image
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
