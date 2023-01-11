@@ -1,6 +1,6 @@
 ---
-- hosts: ansibleserver
-  become: true
+- hosts: all
+  become: false
 
   tasks:
   - name: create docker image using war file
