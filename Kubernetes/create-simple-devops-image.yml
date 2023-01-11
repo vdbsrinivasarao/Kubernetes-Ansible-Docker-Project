@@ -1,10 +1,10 @@
 ---
-- hosts: all
-  become: false
+- hosts: ansibleserver
+  become: true
 
   tasks:
   - name: create docker image using war file
-    command: docker build -t simple-devops-image:latest .
+    command: docker build -t simple-devops-image .
     args:
       chdir: /opt/kubernetes
 
