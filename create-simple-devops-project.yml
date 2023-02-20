@@ -1,23 +1,23 @@
 ---
 - hosts: all
-  become: yes
-
+  become: false
   tasks:
+   - name: stop docker container in ansible server
+     command: docker stop  simple-devops-container
+     ignore_errors: yes
 
-    - name: stop current running container
-      command: docker stop simple-devops-container
-      ignore_errors: yes
+   - name: remove docker container from ansible server
+     command: docker rm -f simple-devops-container
+     ignore_errors: yes
+   - name: remove docker images from ansible server
+     command: docker rmi-f vdbsrao/simple-devops-image
+     ignore_errors: yes
 
-    - name: remove stopped docker container
-      command: docker rm simple-devops-container
-      ignore_errors: yes
+   - name: pull image  from  dockerhub
+     command: docker pull vdbsrao/simple-devops-image
 
-    - name: remove current docker image
-      command: docker rmi ameintu/simple-devops-image:latest
-      ignore_errors: yes
+   - name: building container out of image
+     command: docker run -d --name  simple-devop-container -p 8080:8080  
+     vdbsrao/simple-devops-image
 
-    - name: pull docker image from dockerhub
-      command: docker pull ameintu/simple-devops-image:latest
 
-    - name: creating docker container using simple-devops-image
-      command: docker run -d --name simple-devops-container -p 8080:8080 ameintu/simple-devops-image:latest
