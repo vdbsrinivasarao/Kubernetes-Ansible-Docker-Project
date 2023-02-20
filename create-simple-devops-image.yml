@@ -25,7 +25,4 @@
      command: docker push vdbsrao/simple-devops-image
 
 
-   - name: removing images in local server
-     command: docker rmi simple-devops-image vdbsrao/simple-devops-image
-     ignore_errors: yes
-
+  
