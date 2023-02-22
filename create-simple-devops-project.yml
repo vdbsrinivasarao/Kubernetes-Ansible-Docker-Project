@@ -17,7 +17,6 @@
      command: docker pull vdbsrao/simple-devops-image
 
    - name: building container out of image
-     command: docker run -d --name  simple-devops-container -p 8090:8080  
-     vdbsrao/simple-devops-image
+     command: docker run -d --name  simple-devops-container -p 8090:8080 vdbsrao/simple-devops-image
 
 
