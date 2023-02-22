@@ -1,6 +1,6 @@
 ---
-- hosts: all
-  become: false
+- hosts: localhost
+  become: true
   tasks:
    - name: stop docker container in ansible server
      command: docker stop  simple-devops-image
