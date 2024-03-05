@@ -3,15 +3,15 @@
   become: true
   tasks:
    - name: stop docker container in ansible server
-   -  command: docker stop  simple-devops-image
-    - ignore_errors: yes
+     command: docker stop  simple-devops-image
+     ignore_errors: yes
 
    - name: remove docker container from ansible server
-    = command: docker rm -f simple-devops-image
-    - ignore_errors: yes
+     command: docker rm -f simple-devops-image
+     ignore_errors: yes
    - name: remove docker images from ansible server
-     -command: docker rmi-f simple-devops-image
-     -ignore_errors: yes
+     command: docker rmi-f simple-devops-image
+     ignore_errors: yes
 
    - name: creating docker image
      command: docker build -t simple-devops-image .
